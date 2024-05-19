@@ -1,0 +1,16 @@
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        // Iterate through the array
+        for (int i = 0; i < nums.length; i++) {
+            // Search for the complement of nums[i]
+            for (int j = i + 1; j < nums.length; j++) {
+                // If the complement is found, return the indices
+                if (nums[i] + nums[j] == target ) {
+                    return new int[]{i, j};
+                }
+            }
+        }
+        // Return an empty array if no solution is found
+        return new int[]{};
+    }
+}
