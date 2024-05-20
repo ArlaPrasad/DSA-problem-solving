@@ -1,0 +1,33 @@
+class Solution {
+    public String reverseWords(String str) {
+        String rev = "";
+        String word = "";
+        
+        // Iterate through the characters of the string in reverse order
+        for (int i = str.length() - 1; i >= 0; i--) {
+            if (str.charAt(i) != ' ') {
+                // If the character is not a space, append it to the current word
+                word = str.charAt(i) + word;
+            } else if (!word.isEmpty()) {
+                // If the character is a space and the current word is not empty,
+                // append the current word to the reversed string with a space
+                if (!rev.isEmpty()) {
+                    rev = rev + " ";
+                }
+                rev = rev + word;
+                // Reset the current word
+                word = "";
+            }
+        }
+        
+        // Append the last word to the reversed string
+        if (!word.isEmpty()) {
+            if (!rev.isEmpty()) {
+                rev = rev + " ";
+            }
+            rev = rev + word;
+        }
+        
+        return rev;
+    }
+}
