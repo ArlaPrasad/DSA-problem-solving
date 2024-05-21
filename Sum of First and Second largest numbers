@@ -1,0 +1,20 @@
+class sumoflargestNumbers{
+public static void main(String [] args){
+int [] arr ={3,4,1,5,6,8,9};
+int f1=arr[0];
+int sl=arr[0];
+for(int i=0;i<=arr.length;i++){
+if(arr[i]>fl){
+fl=arr[i];
+}
+}
+for(int j=0;j<=arr.length;j++){
+if(arr[j]>sl && fl!=arr[j]){
+sl=arr[j];
+}
+}
+System.out.println("First Largest Number "+fl);
+System.out.println("First Largest Number "+sl);
+System.out.println(" sum of the Largest Numbers "+(fl+sl));
+}
+}
