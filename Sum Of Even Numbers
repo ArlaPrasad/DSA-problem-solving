@@ -1,0 +1,27 @@
+package venkat;
+
+import java.util.Scanner;
+
+public class SumofEvenOdd {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter Any Number");
+		int num=sc.nextInt();
+		int esum=0; int osum=0;
+		for(int i=1;i<=num;i++){
+			if(i%2==0)
+				esum=esum+i;
+			else
+		
+				osum=osum+i;
+				
+		}
+		System.out.println("Sum of Even Numbers for given number" + esum);
+		System.out.println("Sum of odd Numbers for given number" + osum);
+		
+
+	}
+
+}
