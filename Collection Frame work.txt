@@ -1,0 +1,1045 @@
+				Collection Framework 
+
+Q)  What is data? 
+Ans:
+	Facts and statistics collected together for reference or analysis.
+	Data is a collection of information gathered by observations, measurements, research or analysis. They may consist of facts, numbers, names, figures or even description of things.
+
+Q) What is the Data Structure?
+Ans: Data Structure is made up of two words i.e., Data and Structure.
+	A data structure is a storage that is used to store and organize data.
+	Data Structure is the systematic way used to organise the data in the form of graphs, charts or tables.
+	In the context of computers, the data structure is a specific way of storing and organizing data in the computer's memory so that these data can be easily retrieved and efficiently used when needed later.		
+
+Q) Type of Data Structure: 
+	There are two types of data structures, 
+a.	Linear Data Structure.
+b.	Non-linear Data Structure.
+1.	Linear data structure:
+Data structure in which data elements are arranged sequentially or linearly, where each element is attached to its previous and next adjacent elements, is called a linear data structure.
+	ex: array, stack, queue, linked list, etc. 
+2.	Non-linear data structure: 
+Data structures where data elements are not placed sequentially or linearly are called non-linear data structures.
+	ex: trees and graphs.
+ 
+ 
+Q) What is the Difference between Data type vs. Data Structure?
+Ans: Data type:
+	The data type is the form of a variable to which a value can be assigned.
+	It can hold value but not more data. Therefore, it is less data.
+Data type examples are int, float, double, etc.
+Data structure:
+	Data structure is a collection of different kinds of data. That entire data can be represented using an object and can be used throughout the program.
+	It can hold multiple types of data within a single object.
+Data structure examples are stack, queue, tree, etc.
+Java Supports 4-types of data, 
+1.	Variable Used to Store Single value.
+a.	Int num = 100;
+b.	double height = 5.5; 
+
+2.	Array  Used to store the multiple homogeneous values. 
+a.	Int[] even = {2,4,6,8}
+b.	String[] names = {“ratan”,”sathya”,”anu”}
+
+3.	Object  Used to store the Specific EMP details, Student details…etc 
+Class Emp
+{	int id;
+	String  name;
+	Double salary;
+}
+
+4.	Collections Store collection of Homogeneous & heterogeneous data.
+a.	 List of Employees.
+b.	 List of Students. 
+c.	List of Books……etc
+Arrays vs. Collections: 
+		Both Arrays and Collections are used to represent group of objects as a single entity but the differences are as shown below. 
+
+Arrays: 
+	Arrays are used Store the group of objects but it is homogenous data. 
+	Arrays are fixed in size once we create the arrays we can not increase & decrease the size. 
+ex: we created int[100] with size then 100 memory locations are fixed. But at runtime only two object are inserted remaining 98 locations are wasted. So memory point of view arrays are not good. 
+	Arrays are not supporting any methods so operations becomes complex.
+	Arrays can store primitive int[] & it can store object data Emp[] 
+		int[]	: can store int data. 
+		Emp[]	: can store the Emp object data.
+
+Collections: 
+	Collections are used store the group of objects. It can store both homogenous & heterogenous data. 
+	Collections are growable in nature it will increase & decrease the size as per the need. So Collections are good w.r.t memory. 
+	Collections support methods so operations become easy. 
+	Collections can store only object data. 
+
+Q). How many parts of collection framework?
+Ans: There are two parts, 
+		a. Collection 
+		b. Map 
+ 
+
+public interface Iterable<T>
+It is parent interface of Collection. 
+The classes are Implementing this interface allows an object to be the target of the "for-each loop" statement.
+public interface Collection<E> extends Iterable<E>
+	 The root interface in the collection hierarchy.
+	 A collection represents a group of objects, known as its elements. 
+	 Some collections allow duplicate elements and others do not.
+	 Some are ordered and others unordered.
+public interface List<E> extends Collection<E>
+	It is a child interface of Collection. 
+	Lists typically allow duplicate elements. 
+	An ordered collection (also known as a sequence).
+	List implementation classes: ArrayList,LinkedList,Vector,Stack	
+public interface Set<E> extends Collection<E>
+	It is a child interface of Collection. 
+	A collection that contains no duplicate elements.
+	Set is an un-ordered collection.	
+	Set implementation classes:   HashSet,LinkedHashSet,TreeSet.
+public interface Queue<E> extends Collection<E>
+	It is a child interface of Collection. 
+	order elements in a FIFO (first-in-first-out) manner.
+	Queue implementation classes: 	PriorityBlockingQueue, PriorityQueue.
+ 
+public interface Map<K,V>
+	An object that maps keys to values.
+   A map cannot contain duplicate keys; each key can map to at most one value.
+	Map implementation classes are, 
+		HashMap, LinkedHashMap, TreeMap, HashTable. 
+ 
+
+List vs. Set:
+	List classes allows duplicates objects. If the application requirment to store the duplicate objects then use List implementation classes. 
+	Set classes duplicates are not allowed. If the application requirement is to store the unique objects then use Set implementation classes.
+
+Collection vs. Map: 
+	 Collection used to store the data in single object format [10,20,30,40]
+	  Map used to store the data two objects format in the form of  key:value						{111:"ratan",222:"anu"}
+
+Collection vs. Collections:
+	Collection is a root interface of Collection Framework. 
+	Collections is a class contains some methods to perform some operations.
+
+Legacy classes or interface:
+	The classes or interfaces introduced in java1.0 version those are called legacy classes or interfaces. 
+
+
+
+
+			List Implementation classes 
+
+When we will use List classes: 
+1.	Store the marks of all students.
+2.	Store the salary of all employees.
+3.	Store the heights of all persons.
+4.	Store the List of books objects. 
+5.	Store the List of customer object…..etc 
+
+List implementation classes: 
+	Arraylist,LinkedList,Vector, Stack. 
+
+Java.util.ArrayList: 
+        1.ArrayList Duplicate objects are allowed 
+	2. ArrayList ordered collection.
+	3. ArrayList allows null is allowed.
+	4. ArrayList methods are non-synchronized. 
+	5. ArrayList underlaying data structure is Resizable-array.
+
+primitive data types:
+  byte, short, int, long, float, double, char, boolean 
+wrapper classes 
+  Byte, Short, Integer, Long, Float, Double, Character, Boolean 
+
+Note: 	The Collections allows only object data. when we add the primitive data into ArrayList, but that primitive data is automatically converted into wrapper object is called autoboxing. 
+
+Autoboxing vs. Auto-unboxing: 
+         Automatic conversion of primitive to wrapper object is called Autoboxing. 
+	 Automatic conversion of wrapper object to primitive is called Auto-unboxing. 
+	 This concept introduced in java5 version. 
+
+Q. What is marker interface? 
+Ans: Marker interfaces are empty interfaces, but the implemented classes are acquiring capabilities. 
+public interface RandomAccess
+	Marker interface used by List implementations to indicate that they support fast (generally constant time) random access.
+	Java.util.RandomAccess 	:	Data Access Capabilities.  
+	Java.lang.Cloneable	 : 	Cloning Capabilities.
+	Java.io.Serializable		:	Serialization capabilities.
+ArrayList implements RandomAccess interface provide speed data access.
+ArrayList methods: 
+
+1.	add()			:   This method will add the data by default last 
+2.	add(2,"ratan")		:   This method will add the data at 2nd index 
+
+3.	size()			:    To find the size of the ArrayList.
+4.	contains(Object o) 	:    Check the element is present or not.
+
+5.	remove("ratan")		:    Used to remove the object "ratan".
+6.	remove(2)		:     Here int value by default taking index format 
+
+7.	set(1,"ratan")		:     To replace the data at 1st index. 
+8.	get(int index)		:     This method returns elements at the specified index.
+
+9.	isEmpty()			:     To check the ArrayList is empty or not 
+10.	clear()			:     To remove the all elements.
+
+11.	indexOf(element)	:   Returns the first occurrence of the given element or -1 if 
+the element is not present in the list.
+12.	toArray()			:   converts this ArrayList into an array.
+
+13.	removeAll(Collection c)       :   Removes the Collection Data.
+14.	retainAll(Collection c) 	:   Removes the Collection Data.
+
+15.	addAll(Collection c)	:   To add one collection data into another Collection.
+16.	containsAll(Collection c) : To check the Collection Data present or not.
+
+17.	subList(int fromIndex, int toIndex)
+This method extracts a portion of the arraylist and returns it. 
+Memory Representation:
+ 
+Java.util.LinkedList (java 1.2): 
+	1. LinkedList Duplicates are allowed. 
+	2. LinkedList ordered collection.
+	3. null is always allowed. 
+	4. Methods are non-synchronized. 
+	5. Doubly-linked list implementation of the List and Deque interfaces.
+
+LinkedList Methods:
+addFirst(e) 	:   This method Inserts the specified element at the beginning of this list.
+addLast(E e)	: 	This method Appends the specified element to the end of this list.
+
+getFirst()	: 	This method returns the first element in this list. 
+getLast() 	: 	This method returns the last element in this list.
+
+removeFirst()	:	This method remove the first element		
+removeLast()	:	This method remove the last element.
+
+ArrayList vs. LinkedList: 
+1.	ArrayList internally uses resizable array Data structure to store the elements. 
+       So the data stored in array format.
+       LinkedList internally uses double LinkedList implementation to store the elements. So the data stored in double linked list format. 
+
+2.	when we are doing Insertion, remove data on Arraylist is slow because when we perform these operations internally it requires more shift        operations. 
+But insertion,remove  operations LinkedList is faster because shift operations are not required. Just adding or removing one link. 	
+
+3.	Search operartions ArrayList is good it is index based.
+Element retrieval in ArrayList is much faster then LinkedList, ArrayList take O(1) of time to retrieve any location where LinkedList take O(n) time to retrieve the element. However, unlike arrays which allow random access to the elements contained within them, a link list only allows sequential access to its elements.
+
+4.	with respect to memory ArrayList is Good . it stores only data.
+LinkedList stores the data & next link address. 
+Linked lists also use more storage space in a computer memory as each node in the list contains both a data item and a reference to the next node.
+
+5.	ArrayList implements RandomAccess marker interface hence the data Access fast. 
+    But LinkedList not implements RandomAccess interface hence the data Access slow.
+
+
+Java.util.Vector:
+	There are two types of methods in java,
+1.	Non-synchronized method. 
+2.	Synchronized method 
+
+1.	Synchronized method: 
+Only one thread is allow to access this method, these are thread-safe.
+2.	 Non-synchronized method: 
+More than one thread can access at a time this is not thread safe. 
+
+ArrayList vs. Vector(java1.0): 
+	ArrayList & Vector both are same. 
+	ArrayList methods are non-synchronized so more than one thread can access at a time this is not thread safe
+Vector methods are synchronized	 only one thread can access it is a thread safe. 
+
+If the Thread-safe implementation is needed then use	 :  Vector 
+If the Thread-safe implementation is not needed then use :  ArrayList 
+
+As of the Java 2 platform v1.2, this class was retrofitted to implement the List interface, making it a member of the Java Collections Framework. Unlike the new collection implementations, Vector is synchronized so it is thread-safe. If a thread-safe implementation is not needed, it is recommended to use ArrayList in place of Vector.	
+
+Cloning Process:
+	The process of creating duplicate object is called cloning process. 
+	The clone() method of Object class is used to clone an object.
+
+	protected Object clone() throws CloneNotSupportedException
+	
+	If a class needs to support cloning, it must implement java.lang.Cloneable interface. If the  class does not implement Cloneable interface then it throws an exception CloneNotSupportedException.
+ 
+
+
+Stack: java1.0
+	The Stack class represents a last-in-first-out (LIFO)
+	It is child class of Vector. 
+
+Stack Methods: 
+push(Object element)
+Pushes an element on the top of the stack. 
+pop()
+Removes and returns the top element of the stack. An ‘EmptyStackException’ An exception is thrown if we call pop() when the invoking stack is empty. 
+
+peek()
+ Returns the element on the top of the stack, but does not remove it. 
+
+search(Object element)
+ It determines whether an object exists in the stack. If the element is found, It returns the position of the element from the top of the stack. Else, it returns -1. empty():- It returns true if nothing is on the top of the stack. Else, returns false
+
+
+
+
+
+			Collection data Sorting Operation 
+
+If we want to perform sorting operations the data, that data must satisfies two conditions,
+1.	The data must be homogenous.
+2.	The data must implements Comparable interface.
+In java String, all wrapper classes are implementing comparable interface by default.
+
+To perform sorting internally JVM uses compareTo() method. 
+compareTo() method compare the data returns int value. 
+		ratan   ratan  =   0      	No change in order 
+		anu     ratan   =  -ve	  	No change in order
+		ratan	anu      =  +ve    	Change in order
+
+Observations: 
+case 1: 	if we are trying to perform sorting of heterogeneous data, while performing comparison by using comapreTo() method JVM will generate java.lang.ClassCastException. Because using compareTo() not possible to compare two different objects. 	
+case 2:  	when we perform sorting of data, if the data contains null value while performing comparison by using compareTo() method JVM will generate NullPointerException. Any object with comparision of null, you will get NullPointerException. 
+		
+java.lang.Comparable vs. java.util.Comparator:  
+java.lang.Comparable :   
+	It is used to perform default natural sorting(String,all wrapper).
+	Here performing sorting logics compareTo(arg1) method. 
+	This ordering is referred to as the class's natural ordering, and the class's compareTo method is referred to as its natural comparison method.
+Comparator(java.util) :  
+	This is customized sorting order. 
+	This is only for customized sorting(Emp) predefined classes are not implementing Comparator.
+	Here performing sorting logics compare(arg1,arg2) method.
+
+Collections class Methods: 
+       sort(Comparator comp) 	:	Used to sort the data. 
+	reverse(java.util.List)	       :	Used to reverse the data. 
+	shuffle(java.util.List<?>)	:	Used to shuffle the data.
+	swap(java.util.List, int, int):	Used to swap the data.
+             nCopies(object,int)		:	Takes the same object n times. 			
+
+			Collection Cursors To Read the data
+ 
+				Set interface classes 
+
+When we will set? 
+	Store the student hall ticket numbers.
+	Store the customers mobile numbers. 
+	Store the colour names. 
+	Store the list of software company names. 
+	Store the city names of Telangana. 
+	Stores the state names belongs to india……etc 
+
+Set implementation classes:     
+HashSet , LinkedHashSet , TreeSet.
+
+Java.util.HashSet: 
+1.	Duplicates are not allowed. If we are trying to insert duplicates, we will not get any errors, it will insert the first occurrence it will ignore next data.  
+2.	This class permits the null element.
+3.	Note that this implementation is not synchronized.
+4.	It makes no guarantees as to the iteration order of the set.
+5.	underlaying data structure is HashTable.
+
+Note:  To read the data from set classes it is possible to use only Iterator cursor.
+Just to eliminate the duplicates from List implementation classes pass the objects to as argument of set implementation classes.  
+
+Methods in Set: 
+add()  	Used to add the specified element if it is not present, if it is present then return false. 
+clear()		Used to remove all the elements from set.
+
+contains(Object o):	Used to return true if an element is present in set. 
+remove(Object o):	 Used to remove the element if it is present in set. 
+
+iterator():	 Used to return an iterator over the element in the set.
+isEmpty():	 Used to check whether the set is empty or not. Returns true for empty and false for a non-empty condition for set. 
+
+size() :	 Used to return the size of the set.
+
+
+
+
+
+java.util.LinkedHashSet: 
+1.	Duplicates are not allowed. If we are trying to insert duplicates, we will not get any errors, it will insert the first occurrence it will ignore next data.  
+2.	This class permits the null element.
+3.	Note that this implementation is not synchronized.
+4.	insertion order is preserved. 
+5.	underlaying data structure: HashTable + LinkedList
+ 
+
+HashSet vs. LinkedHashSet: 
+	HashSet insertion order not preserved. 
+	LinkedHashSet insertion order is preserved.
+
+java.util.TreeSet: 
+1.	The elements are ordered using their natural ordering.
+The elements are stored in sorting order. 
+2.	Note that this implementation is not synchronized. 
+3.	Duplicates are not allowed.
+4.	This class permits null value.
+
+TreeSet Methods:
+subset(start,end) 	: To get the sub element from start to end. 
+tailSet() 		: To get the tail elements.
+HeadSet()		: To get the head elements.
+
+				Map 	Interface Classes 
+
+When we will use map?
+	To store the word Count    
+o	word: key     count: value 
+	To store the IP address & accounts created.
+o	Ip address : key   Accounts  : value 
+	To store the Group of objects
+o	Object reference : Key   object : value
+	Store the Student Results,
+o	Hall Ticket number : key    percentage : value 
+	Store the bus seat number Along with the name. 
+o	Seat number : key    person name : value 
+	To store the order details. 
+o	Token id : key 	item name: value 
+	To store the pin code with area name. 
+o	Pin code : key    Area-Name: value 
+	To store the College name with college code.
+o	College code : key  college name: value 
+
+What is Map? 
+	Map is an object that maps keys to values. A map can not contain duplicate keys but values can be duplicated. each key can map to at most one value.
+	Map is used to store two objects at a time in the form of key value pairs. Here the key is object & value is object. 
+	The key value pair is known as entry, the map contains group of entries.
+
+Map implementation classes: 
+	HashMap, LinkedHashMap, TreeMap, HashTable, Dictionary.
+
+Some more cases with Map: 
+1)	Store bus service number with route information. 
+	ex: service-1  ::  hyd,suryapet, vij
+	      service-2  ::  hyd, Nalgonda, miryalaguda 
+2)	Store the country name with states names. 
+ex:   INDIA : AP,TS,KT 
+3)	To store the Aadhar Number with personal information.
+ex:   353453553534:  “ratan” “male” “NRT”
+4)	To store the Ticket number with passenger details. 
+ex:  4535345 :   “ratan” “male” “email” “mobile”
+5)	To store the Order id along with multiple items.
+ex:  GT378  :     “dosa”,”idly”, “poori”
+
+
+ 
+
+Java.util.HashMap: java1.2
+1.	 HashMap is used to store two objects at a time in the form of key value pairs. 
+Here the key is object & value is object. There is no guarantees on order. 
+2.	In the map the keys must be unique but values we can duplicate.
+3.	Hashtable based implementation of the Map interface. 
+4.	permits null values and the null key.
+5.	Note that this implementation is not synchronized.
+
+LinkedHashMap : java 1.4
+1.	HashMap is used to store two objects at a time in the form of key value pairs.
+ Here the key is object & value is object with predictable iteration order.
+2.	In the map the keys must be unique but values we can duplicate.
+3.	Hash table and linked list implementation of the Map interface. 
+4.	permits null values and the null key.
+5.	Note that this implementation is not synchronized.
+
+HashMap vs. LinkedHashMap: 
+	HashMap is un-ordered where as LinkedHashMap is ordered.
+
+java.util.TreeMap:
+	1. A Red-Black tree based NavigableMap implementation. 
+	2. The map is sorted according to the natural ordering of its keys.
+	3. Note that this implementation is not synchronized.
+	4. null is allowed for both key & value.
+
+ 
+put(K obj, V obj):	This method is used to add a new key-value pair to the Map.
+V putAll(): 	Inserts all the entries from the specified map to this map.
+
+V putIfAbsent(K obj, V obj)
+	Inserts the association of the key K is not already associated with the value V.
+V get(K obj):  This method returns the Value object of the specified key. If the specified key is not available then it returns null.
+V getOrDefault(K obj, defaultValue): 
+Returns the value associated with the specified key K. If the key is not found, it returns the default Value.
+
+V replace(K, V): 	Replace the value of the key K with the new specified value V.
+V replace(K, oldValue, newValue): Replaces the value of the key K with the new value new Value only if the key K is associated with the value oldValue.
+
+V remove(K): 	this method removes the specified key along with its value.
+V remove(K, V): Removes the entry from the map that has key K associated with value V.
+
+int size():   method returns the count of the number of Key-Value pairs available in the Map.
+void clear():  This method clears all the Key-value pairs of the map.
+boolean isEmpty(): This method returns true if Map does not contain any Key-Value pairs otherwise it returns false.
+
+Set keyset(): Method returns all the keys available in the Map separately in the form of Set.
+Set entrySet(): This method returns all the Key-Value or entities available in the Map separately in the form of a Set.
+Collection values():  This method returns all the Key-Values or entities in the Map separately in the form of a Set.
+
+boolean containsKey(): This method returns true if the specified Key is available in the Map otherwise it returns false.
+boolean containsValue(V obj): This method returns true if specified Value is available in the Map otherwise it returns false.
+
+ 
+
+
+ 
+
+
+
+			Collection Framework interview Questions 
+
+Q1. What is data & Data Structure? 
+Ans: facts and statistics collected together for reference or analysis
+
+Q2. Define the Collection framework or advantages of collection framework?
+Ans:
+	The main objective of collections framework is to represent group of objects as a single entity. 
+	java Collection framework provide very good architecture to store and manipulate the group of objects.
+	Collection contains group of classes and interfaces that makes it easier to handle group of objects. 
+
+Q3. Define Collection?
+Ans:  A collection represents a group of objects, known as its elements. 
+	  Some collections allow duplicate elements and others do not.
+	  Some are ordered and others unordered.
+
+Q4. When to use Arrays vs. Collections? 
+Ans: 	
+	Arrays are homogeneous , fixed size and does not support methods so operations are complex. 
+	 Arrays performance is good. 
+	Collections can store heterogeneous & growable in nature, supports methods so operations are easy. Collections memory good. 
+	  
+Q5. Is it collections can store primitive data?
+Ans: No, collections can store only object data. 
+	 Even when we add the primitive data, it will automatically convert into object format is called autoboxing. 
+
+Q6. How many parts of collection framework?
+Ans: There are two parts, 
+		a. Collection 
+		b. Map 
+
+Q7. Collection framework related data present in which package? What is the root interface of Collection & map?
+Ans:   Collection Related data present in package “java.util" package 
+	   Collection interface is the root interface of the Collection Framework.  
+	   Map is the root interface of map. 
+
+
+Q8. Define Collection vs. Collections?
+Ans:  Collection is a root interface of collection framework.
+	  whereas Collections is class it contains some methods to perform operations.
+
+Q9. How many parts of Collection? What is the parent interface of Collection?
+Ans: There are three parts Collections, 
+		List, Set, Queue 
+	Iterable interface is parent of Collection
+	Iterable present in "java.lang" 
+
+Q10. What is the difference between the Collection & Map? 
+Ans:  Collection used to store the data in single object format [10,20,30,40]
+	  Map used to store the data two objects format in the form of  key:value					{111:"ratan",222:"anu"}
+
+Q11. Define the List? 
+Ans: 	public interface List<E> extends Collection<E>
+		It is a child interface of Collection. 
+		Lists typically allow duplicate elements. 
+		An ordered collection (also known as a sequence).
+		List implementation classes, 
+			Ex: ArrayList, LinkedList,Vector, Stack. 
+
+Q12. Define the Set?
+Ans: public interface Set<E> extends Collection<E>
+		It is a child interface of Collection. 
+		A collection that contains no duplicate elements.
+		An un-ordered collection.
+		List implementation classes, 
+			Ex: HashSet, LinkedHashSet,TreeSet. 
+
+Q13. What is the difference between List & Set? 
+Ans: List classes allows duplicates objects. 
+	If the application requirement to store the duplicate objects then use List implementation classes. 
+	If the application requirement is to store the unique objects then use Set implementation classes.
+
+Q14. When we will use List & Set classes?
+Ans: If the application requirement is to store the duplicate elements use List Classes. 
+	 If the application requirement is to store the unique elements use Set Classes. 
+
+
+Q15. Which collection classes methods are synchronized & non-synchronized?
+Ans: 
+The Collections classes are introduced in java1.0 version those class methods are synchronized by default.
+			ex: Vector, Stack, Dictonary,HashTable…etc
+ 
+	 The classes except 1.0 version class methods are by default non-synchronized. 
+			ex: ArrayList, LinkedList,HashSet,HashMap….etc
+
+Q16. what is Autoboxing & Auto-unboxing? 
+Ans: Automatic conversion of primitive to wrapper object is called Autoboxing. 
+	 Automatic conversion of wrapper object to primitive is called Auto-unboxing. 
+	 This concept introduced in java5 version. 
+	
+Q17. Arrays are already used to store homogenous data & Collections generic version also   to store homogenous then what is the difference? 
+Ans:  Arrays are used to store the homogeneous data & collections generic version also used to store homogeneous data but collections provides more flexibility with respect to the memory & operations because Collections supports methods.
+
+Q18. Collection data is type safe or not? 
+Ans: Collections are not type safe by default so we have the type casting problems
+       but we will provide the type safety to the Collections use generics. 
+
+Q19. What is the use of generics?
+Ans: Collections are not type safe by default so we have the type casting problems 
+	To provide the type safety to the collections. To overcome type casting problem. 
+
+Q20. Define ArrayList?
+Ans:	ArrayList Duplicate objects are allowed 
+		ArrayList ordered colection.
+		ArrayList allows null is allowed.
+		ArrayList methods are non-synchronized. 
+		ArrayList uderlaying data structure is Resizable-array.
+
+Q21. How many ways to add one collection data into another? 
+Ans: There are two ways, 
+		a. Constructor Approach   :   one to one  :  A1 data is added into A2 
+	b. addAll() method.		  :   many to one :  A1,A2 data is added into A3 
+
+
+
+Q22. What are the limitations of ArrayList? 
+Ans: Our frequent operations are adding, removing middle of the ArrayList then it is not  recommended because it will take more shift operations. 
+
+Q23. How to convert arrays to Collections? 
+Ans:  using Arrays.asList() 
+
+Q24. How to convert collections to arrays? 
+Ans:  using toArray(), it is a overloaded method, 
+		toArray(arg)  :  To convert generic collection to array. 
+		toArray()     :  To convert normal collection to array. 
+
+Q25. What is the Difference between add() & addAll()?
+     What is the Difference between remove() & removeAll()?
+     What is the Difference between contians() & contiansAll()?
+Ans:      add() method used to add one object. 
+	 addAll() method used to add collection data. 
+
+	 remove() method used to remove one object. 
+	 removeAll() method used to remove collection data. 
+
+	 contains() method used to check the one object present or not. 
+	 containsAll() method used to check the collection data present or not. 
+
+Q26. How to replace the objects in ArrayList?
+Ans: To replace the objects in ArrayList use set() method. 
+		
+Q27. Define ArrayList vs. Vector? 
+Ans: If the Thread-safe implementation is needed then use Vector 
+	 If the Thread-safe implementation is not needed then use ArrayList 
+
+Q28. Define ArrayList vs. LinkedList?
+Ans: Our frequent operations are adding the data at last, searching operations , Data accessing operations then use ArrayList.
+	 Our frequent operations insertion,removing middle then use LinkedList. 
+
+Q29. How the ArrayList support fast ramdom Data Access? 
+Ans:	Because it is implementation RandomAccess marker interface which provides the Data accessing capabilities. 
+	RandomAccess is a marker interface provides Data accessing capabilities. 
+
+Q30. what is the stack order? 
+Ans: it fallows LIFO(Last in first out). 
+
+Q31. What is the difference between the HashSet & LinkedHashSet? 
+Ans:         HashSet		:	insertion order is not preserved 
+	   LinkedHashSet	:	insertion order is preserved. 
+
+Q32. In set data when we insert multiple duplicate elements then what is the behaviour?
+Ans: Set duplicates are not allowed. If we are trying to insert duplicates we will not get any errors, it will insert the first occurrence it will ignore next data. 
+
+Q33. What are the cursors applicable to Set implementation classe?
+Ans:	Set implemented classes: HashSet, LinkedHashSet,TreeSet
+	On the Set implementation classes only one cursor is applicable that is Iterator. 
+
+Q34. Can we insert multiple null values in HashSet? 
+Ans: No, not possible because set allows only unique elements. 
+
+Q35. What is the advantages of TreeSet? 
+Ans: In TreeSet the data will be stored in Natural sorting order. 
+	 It is possible to write custamized sorting logics using Comparator. 
+
+Q36. what is the purpose of cursors? how many cursors? 
+Ans: To read the data from collection classes use Cursors.
+	 There are three types of cursors,
+		i.  Enumeration
+		ii.  Iterator
+		iii. ListIterator 
+
+Q37. what is the universal cursor & bi-directional cursor & legacy cursor? 
+Ans.		Universal cursor		::  Iterator 
+		Bi-directional cursor		::	ListIterator 
+		Legacy cursor			::	Enumeration 
+
+Q38. When we add the data using cursor,the data is added at which location?
+Ans: The data is added at first location. Because the when we create the cursor object that cursor	is pointing to before first element. 
+
+Q39. Using cursor can we read the data from specific index?
+Ans: Yes, possible. 
+	 While creation of ListIterator object give the cursor position number. 		
+
+
+Q40. What is the difference between capacity() & size()?
+Ans:  Capacity() means the number of elements the Collection or Map can store. 
+	  size() means the number of elements present in Collection or Map. 
+
+Q41. What are the differnet ways to read the data from Collection? What is the difference between them? 
+Ans:		       a. Using for-each loop 
+			b. using get() method. 
+			c. using cursors. 
+	
+		 get() method used to get the specific/single object. 
+		 for-each loop to get all elements. 
+	        Cursor can read & update & add & remove operations can be performed. 
+
+Q42. Arrays are performace good when compare to Collection Why?
+Ans: Arrays are performance good.  size = 10 
+			e1 e2 e3 e4 e5 e6 e7 e8 e9 e10 
+	 Once we create the Vector with size 10, once it reaches maximum capacity the existing vector not increased, It will create the the new Vector        memory space created with new capacity. After that old data is copied to new memory. The old data is garbage collected. 
+	 If we know th size in advance it is recommanded to go with Arrays.
+
+Q43. To perform the sorting internally it uses which method?
+Ans:  To perform sorting internally JVM uses compareTo() method. compareTo() method compare the	data returns int value. 
+			ratan   ratan  = 0      no change in order 
+			anu     ratan  = -ve	no change in order
+			ratan	anu	   = +ve    change in order
+
+Q44. Can we perform the sorting of Hetrogeneous data? Can we sort the data, if the data contains null value?  
+Ans: 	No, not possible to perform sorting of hetrogenous data we will get ClassCastException. Because while performing the comparision of    diffent type of data we will get Exception. 
+
+	No, not possible it will generate NullPointerException. 
+	 Because while performing the comparision of data with null value it will throws exception. 
+
+
+
+
+Q45. What is the difference between Comparable vs. Comparator?
+Ans:	Comparable to perform default sorting order. 
+	String,All wrapper classes implements Comparable.
+	Comparable present in :  java.lang 
+
+	Comparator to perfrom custamized sorting logics. 
+	No predeifned classes are implementing Comparator. 
+	Comparator present in : java.util 
+
+Q46. Define the Map interface? Give me scenarios about where we will use map?
+Ans:  Used to store the data in key:value pair format. 
+	  The key:value is also known as entry. 
+	  So map contains group of entries. 
+
+	  Scenarios About Map: 
+		   store group of objects 	key: object-reference   value : object
+		   word count			key: word	             value : count 
+		   IP address hittings	key:  ip                        value : number of hittings
+ 
+Q47. What is the difference between the HashMap & LinkedHashMap? 
+Ans:   	   HashMap  insertion order is not preserved 
+	   LinkedHashMap insertion order is preserved. 
+
+Q48. How can we get keys,values,entries from map? How can we add one map into another? 
+Ans: To get all the keys from map	:	 keySet() 
+	 To get all the values from Map :	        values() 
+	 To get all the entries from Map:         entrySet() 
+	 There are two ways, 
+		a. using constructor Approach.  
+		b. using putAll() method.
+
+Q49. What is the difference between HashMap & Hashtable? 
+Ans:   HashMap methods are non-synchronized not thread safe.  
+	   Hashtable(1.0) methods are synchronized it is thread safe.
+
+Q50. What is the purpose of TreeMap?
+Ans: The TreeMap will store the data in sorting format by default natural sorting order. 
+	 By default the data will sort based on keys. 
+	 It is possible to make the customized sorting order using Comparator.
+
+
+
+				Lab Activities 
+
+Assignment-1: 
+	Write a Java program to create a ArrayList<String>, add student names, just print the data using S.O.P() statement.
+
+Assignment-2:
+	Take the ArrayList add some fruit names 
+	print the data using for-each loop. 
+
+Assignment-3: 
+	Take the ArrayList add even numbers : 1-10 
+	print the data using for-each loop. 
+
+Assignment-4: 
+	Take the ArrayList with some prime numbers. 
+i.	print the number of elements. 
+		ii.  print the first element. 
+		iii. Print the last element. 
+		iv.  print the 3rd element. 
+
+Assignment-5:
+	Write a Java program to search an element in a ArrayList.
+		If the element is present give the message "Element Found"
+		If the element is not-present give the message "Element NotFound"
+
+Assignment-6: 
+	Take the ArrayList with add vowel characters. 
+		i.	Insert the new character at 2nd position. Print the data check.
+		ii. 	Replace the character at 3rd position. print the data check. 
+		iii.	Remove the character at 1st location. print the data check. 
+		iv. 	Remove the specific by giving the character object. 
+		
+Assignment-7: 
+	W.J.P Take the ArrayList with amstrong numbers.
+	Check the ArrayList empty or not, 
+	i. If it is not empty clear all elements give the message elements are cleared. 
+	ii. If it is already empty give the message already empty.
+
+Assignment-8: 
+	W.J.P Take the ArrayList with 5-even numbers. 
+		i. Print the sum of all numbers.  
+		ii. print the avg of all numbers.
+Assignment-9: 
+	W.J.P Take the ArrayList with some student names. 
+		Take the subList(2-5) from existing list print the data. 
+
+Assignment-10: 
+	String[] names = {"ratan","anu","saravya"}
+	Convert the above String array into Collection format. 
+
+Assignment-11: 
+	ArrayList contains some String format Laptop names. 
+	Convert ArrayList into Array format. Print the array data. 
+
+Assignment-12: 
+	class Book 
+	{	id, name, author 
+	}
+	class MainTest
+	{	public static void main(String[] args)
+		{	ArrayList<Book> : insert 5-book objects 
+			i. print the all objects using for-each loop. 
+			ii. get the specific object using get() method. 
+		}
+	}
+
+Assignment-13: 
+Customer class: id name mobileNo
+ArrayList<Customer> a1 : Insert the two Customer objects 
+ArrayList<Customer> a2 : Insert the two Customer objects 
+ArrayList<Customer> a3 : Insert the one Customer object + add a1,a2 data into a3
+	Read the a3 data using for-each loop. 
+
+Assignment-14: 
+	W.J.P take the method argument is ArrayList<String> 
+	Pass the data while calling the method, print the data inside the method. 
+
+Assignment-15: 
+	W.J.P take the method return type is ArrayList<String> 
+	return the ArrayList data, In main method hold the data print it. 
+
+Assignment-16: 
+	Write a java program add String "ratan" 10-times into ArrayList. 
+
+
+Assignment-17: 
+	W.J.P Take the ArrayList with some color names. 
+		i.   Swap the any two elements. 
+		ii.  Shuffle the data. 
+
+Assignment-18: 
+	W.J.P Take the ArrayList with some Random numbers. 
+		i.  Print the minimum element 
+		ii. print the maximum element.
+
+Assignment-19: 
+	W.J.P Take the ArrayList with some Faculty names. 
+		i.  Sort the data ascending order.
+		ii. Sort the data descending order.
+
+Assignment-20: 
+	W.J.P Take the ArrayList with some institute names. 
+	Print the data reverse order. 
+
+Assignment-21:
+	W.J.P Take the LinkedList with some colours. 
+		i.  Add the new colour element in first & last location. print the data.  
+		ii. replace the element in 3-rd location. print the data. 
+		iii. Remove the head element of the LinkedList & print the data. 
+
+Assignment-22:
+	W.J.P Take the LinkedList with some Animals. 
+		i.  Remove the first & last location. print the data.  
+		ii. Get the first & last location element. print the data. 
+
+Assingment-23: 
+	W.J.P Copy Elements of One LinkedList to Another LinkedList in Java? Merging.
+	(Here we can copy the data from any list to any list)
+		i.   Assign the existing reference to new object using =
+		ii.  using clone() method. 
+
+Assingment-24: 
+	W.J.P Copy Elements of One LinkedList to Another LinkedList in Java? Merging.
+	(Here we can copy the data from any list to any list)
+	i.   passing the existing object data into new object constructor. 
+	ii.  Using for-each loop adding existing object data into new object using add().
+	iii.   Using addAll() method
+				
+Assignment-25: 
+	class Product  :: pid , pname, pcost 
+	Add 4-product objects into LinkedList
+	Print the data using for-each loop. 
+
+Assignment-26:
+	Write a Java program to display the elements and their positions in a Vector.
+		o/p:   Element at index 0: Ratan								             Element at index 1: sathya 
+
+Assignment-27: 
+	Take the ArrayList<Integer> even numbers.
+	Take the LinkedList<Integer> odd numbers.
+	Add the both ArrayList & LinkedList data into Vector. 
+	Print the Vector data using for-each loop. 
+
+Assignment-28: 
+	Take the Stack with some numbers, 
+		i.	 Remove some elements of the Stack.
+		ii.  Search the element in the Stack. 
+		iii. print the top element of the Stack. 
+
+Assignment-29: 
+	Take the Vector with some Hospital names,
+	Print the data using Enumeration cursor with generic version. 
+
+Assignment-30: 
+	ArrayList<Double> heights = 3.2 5.5 6.8 6.0 4.9 4.3
+	Remove the height<5 using iterator 
+	print the remaining data Using S.O.P 
+
+Assignment-31: 
+	Take ArrayList<Integer> numbers; 
+	Add the data: 	3, 5, 8, 9, 6, 7 
+	Perform the below operations using ListIterator. 	
+		i.  Add the 11 
+		ii. Remove the even numbers 
+		iii. replace the 7 with 700 
+	 print the Remaining  data using sop. 
+
+Assignment-32: 
+	Take the ArrayList with some String village names,
+	Print the data backword direction using cursor. 
+Assignment-33: 
+	Take the class Emp : id, name, salary
+	Take ArrayList<Emp> emps; 
+		add the 4-emp objs 
+		print the data using Iterator cursor. 
+
+Assignment-34: 
+	W.J.P Take the ArrayList with some duplicate student names. 
+	print the names without duplicates. 
+
+Assignment-35: 
+	Take the HashSet with Some village pincodes
+	Print the data using Iterator Cursor. 
+
+Assignment-36:
+	W.J.P Take the LinkedHashSet with some Random numbers. 
+		i. print the first element of set. 
+		ii. print the last element of set. 
+Assignment-37: 
+	Create the TreeSet Add some numbers Print the data. 
+
+Assignment-38: 
+	Write a Java program to iterate through all elements in priority queue.
+
+Assignment-39: 
+	Write a Java program to compare two priority queues.
+
+Assignment-40:
+ Take the HashMap<Integer,String> add the data into HashMap
+		key:100  value: "Information responsse"	
+		key:200  value: "sucessfull reponse"	
+		key:300  value: "redirection messages"	
+		key:400  value: "client error response"	
+		key:500  value: "server error response"
+	Print the data specific object.
+	Print the all objects using for-each loop. 
+
+Assignment-41: 
+	Take the LinkedHashMap add some key:value pairs, 
+		a. count the number of key:value in map. 
+		b. Get the specific value based on key. 
+		c. remove the specific entry based on key
+		d. replace the specific value with original value. 
+Assignment-42:
+	Take the LinkedhashMap<String,Integer> wordCount 
+		add the word as key.
+		add the number of occurrences as value. 
+			i.   Get all keys print the data. 
+			ii.  Get all values print the data. 
+			iii. Get the entries print the data. 
+
+Assignment-43: 
+	Take the LinkedHashMap add some key:value pairs,
+		a. Print the first entry(key:value). 
+		b. print the 3rd entry. 
+		c. Print the last entry. 
+Assignment-44: 
+	Take the LinkedHashMap add some key:value pairs,
+		a. Check the specific key present or not, 
+			 If present give the message available otherwise not-available. 
+		a. Check the specific value present or not, 
+			 If present give the message available otherwise not-available. 
+
+Assignment-45: 
+	Take the LinkedHashMap add some key:value pairs,
+	Insert the key:value if the key:value not present 	
+
+Assignment-46: 
+Customer : id name email mobile
+HashMap<Integer,Customer> objs; 
+	objs.put(1,new Customer(101,"ratan","ratan@gmail.com",7643585734))
+		add the four objects 
+	output: 		Key					Value
+				1 ---> 111 ratan ratan@gmail.com 9000160099 
+				2 ---> 222  anu   anu@gamil.com  7330886699 
+
+Assignment-47: 
+	Take the Emp class : id,name,author
+	Take the Book class: id,name,author
+	Take the LinkedHashMap<Emp,Book> objs; 
+		objs.put(new Emp(id,name,esal),new Book(bid,bname,bauthor));
+			add 4-four objects 
+			i. get the keys print the data 
+			ii. Get the values print the data. 
+			iii.  Get the entries print the data.
+
+Assignment-48:
+	Take the class Emp:    empno, empName, Gender, salary, city, deptName
+	Take the ArrayList insert the 7-objects, 
+i.	print the employees gender MALE employees. 
+j.	print the employees gender FEMALE employees.
+k.	Print the employee’s salary>150000
+l.	Print the employees city=Hyderabad 
+m.	Print the employees deptName=developers
+
+Assignment-49:
+Convert a roman number to integer. 
+     Character 		Numeric value 
+	I	==  	        1 
+	V     ==   	        5
+	X    ==                10 
+	L    ==               50 
+ 	C	==  	     100 
+	D	==	            500 
+	M	==	            1000 
+Output: 
+	Enter roman number   :     XV	XXV	VII 	
+	The integer value  	  :       15 	 25	7	
+
+Assignment-50:
+		HashMap<String,String> student;
+		student.put("101","ratan")
+		student.put("102","anu")
+		student.put("103","sathya")
+		student.put("104","sravya")
+	HashMap<String,String> branch;
+		branch.put("101","CSE")
+		branch.put("102","ECE")
+		branch.put("103","CSE")
+		branch.put("104","EEE")
+write a code to get the Name & ID of the CSE branch.
