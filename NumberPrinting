@@ -1,0 +1,51 @@
+package com.learnig;
+
+public class NumberPrinting {
+	public void printing() {
+		int num=513;
+		int rem,rev=0;
+		while(num>0){
+			rem=num%10;
+			rev=(rev*10)+rem;
+			num=num/10;	
+		}
+		System.out.println(rev+" reverse of given number");
+		int r;
+		while(rev>0) {
+			r=rev%10;
+			rev=rev/10;
+			
+			switch(r) {
+			case 1:System.out.print("one ");
+			break;
+			case 2:System.out.print("two ");
+			break;
+			case 3:System.out.print("Three ");
+			break;
+			case 4:System.out.print("Four ");
+			break;
+			case 5:System.out.print("Five ");
+			break;
+			case 6:System.out.print("Six ");
+			break;
+			case 7:System.out.print("Seven ");
+			break;
+			case 8:System.out.print("Eight ");
+			break;
+			case 9:System.out.print("Nine ");
+			break;
+			default :System.out.print("Zero ");
+			}
+		}
+		 
+		
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		NumberPrinting number=new NumberPrinting();
+		number.printing();
+
+	}
+
+}
